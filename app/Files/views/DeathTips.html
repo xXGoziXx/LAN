@@ -1,0 +1,51 @@
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-64084752-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = 'https://ssl.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+<div id="content" ng-init="page='death';">
+    <div class="cover-container">
+        <div class="masthead clearfix">
+            <div class="inner">
+                <h3 class="masthead-brand" onmousedown="dragMove();" onmouseup="cursorNormal();">League Active Notes</h3>
+                <nav>
+                    <ul class="nav masthead-nav">
+                        <li><a href="#!Home">Home</a></li>
+                        <li><a href="#!AddTips">Add Tips</a></li>
+                        <li class="active"><a href="#!DeathTips">Death Tips</a></li>
+                        <li><a href="#!Overview">Overview</a></li>
+                        <li><a href="#!About">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="inner cover">
+            <div id="NoteSection" style="max-height: 600px;" ng-controller="LanController">
+                <h1 class="cover-heading">Death Tips:</h1>
+                <div id='scrollable' style="max-height: 400px; margin-bottom: 10px;">
+                    <deathview>
+                        {{ loaded() }}
+                        <p ng-if="death == 0">Nothing to see here...</p>
+                        <li style='text-align:left;' ng-if="death > 0" ng-repeat='time in deathTime | orderBy:"-" track by $index '><input type='checkbox' name='deathCheck'/>&emsp;<b>[{{ time }}]</b>&emsp;<span style='color: white;' ng-bind="deathTips[death-$index-1]"></span></li>
+                    </deathview>
+                    {{ animationSync() }}
+                </div>
+                <button onclick="selectAll('death');" style="margin-left:3%; margin-bottom:1%;text-decoration: underline;">Select All</button><button ng-click="$route.reload();" onclick="removeTips('death');" style="margin-left:3%; margin-bottom:1%;">Remove Tips</button>
+            </div>
+        </div>
+    </div>
+    <div class="mastfoot">
+        <div class="inner">
+
+        </div>
+    </div>
+</div>

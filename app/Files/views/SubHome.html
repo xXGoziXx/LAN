@@ -1,0 +1,53 @@
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-64084752-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = 'https://ssl.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+<div id="content" ng-init="page='subIndex';">
+    <div class="cover-container">
+        <div class="masthead clearfix">
+            <div class="inner">
+                <h3 class="masthead-brand" onmousedown="dragMove();" onmouseup="cursorNormal();">League Active Notes</h3>
+                <nav>
+                    <ul class="nav masthead-nav">
+                        <li class="active"><a href="#!SubHome">Add Tips</a></li>
+                        <li><a href="#!DeathSub">Death Tips</a></li>
+                        <li><a href="#!OverviewSub">Overview</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="inner cover">
+            <div id="NoteSection" style="max-height: 265px;" ng-controller="LanController">
+                <h1 class="cover-heading">Add Tips:</h1>
+                <form id="form" action="javascript:void(0);" onsubmit="storeIt(event, 'death'); flash();">
+                    <input type="text" id='clearme' class='input-text' name='tip' placeholder='Enter your tip here...' style="margin-bottom: 10px; clear:both;" required autofocus>
+                    <input type="submit" name="submit-button" class='submit-tip button' value="Add Tip">
+                </form>
+                <div id="hotkey" class="marquee-tips">
+                    <h3>Helpful tips:</h3>
+                    <div class="ideas">
+                        <script type="text/javascript">
+                            document.getElementsByTagName("marquee")[0].innerHTML = ideasPlease();
+                        </script>
+                        <marquee behavior="scroll" direction="left" scrollamount="5">
+
+                        </marquee>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mastfoot">
+        <div class="inner"></div>
+    </div>
+</div>

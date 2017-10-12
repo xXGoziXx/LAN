@@ -1,0 +1,57 @@
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-64084752-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = 'https://ssl.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+<div id="content" ng-init="page='addTips';">
+    <div class="cover-container">
+        <div class="masthead clearfix">
+            <div class="inner">
+                <h3 class="masthead-brand" onmousedown="dragMove();" onmouseup="cursorNormal();">League Active Notes</h3>
+                <nav>
+                    <ul class="nav masthead-nav">
+                        <li><a href="#!Home">Home</a></li>
+                        <li class="active"><a href="#!AddTips">Add Tips</a></li>
+                        <li><a href="#!DeathTips">Death Tips</a></li>
+                        <li><a href="#!Overview">Overview</a></li>
+                        <li><a href="#!About">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="inner cover">
+            <div id="NoteSection" style="max-height: 600px;" ng-controller="LanController">
+                <h1 class="cover-heading">Add Tips:</h1>
+                <form id="form" action="javascript:void(0);" onsubmit="storeIt(event, 'match'); flash();" class="centered">
+                    <div class="">
+                        <input type="text" id='clearme' class='input-text' name='tip' placeholder='Enter your tip here...' style="width: 40%; margin-bottom: 10px; clear:both;" required>
+                        <input type="submit" name="submit-button" class='submit-tip button' value="Add Tip" style="margin-left:5%;">
+                    </div>
+                </form>
+                <div class="marquee-tips">
+                    <h3>Tips and Motivation:</h3>
+                    <div class="ideas">
+                        <script type="text/javascript">
+                            document.getElementsByTagName("marquee")[0].innerHTML = ideasPlease();
+                        </script>
+                        <marquee behavior="scroll" direction="left" scrollamount="5">
+
+                        </marquee>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mastfoot">
+        <div class="inner"></div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-64084752-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = 'https://ssl.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+<div id="content" ng-init="page='death';">
+    <div class="cover-container">
+        <div class="masthead clearfix">
+            <div class="inner">
+                <h3 class="masthead-brand" onmousedown="dragMove();" onmouseup="cursorNormal();">League Active Notes</h3>
+                <nav>
+                    <ul class="nav masthead-nav">
+                        <li><a href="#!SubHome">Add Tips</a></li>
+                        <li class="active"><a href="#!DeathSub">Death Tips</a></li>
+                        <li><a href="#!OverviewSub">Overview</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="inner cover">
+            <div id="NoteSection" style="max-height: 315px;" ng-controller="LanController">
+                <h1 class="cover-heading">Death Tips:</h1>
+                <div id='scrollable' style="margin-bottom:10%; max-height: 155px;">
+                    <deathview>
+                        {{ loaded() }}
+                        <p ng-if="death == 0">Nothing to see here...</p>
+                        <li style='text-align:left;' ng-if="death > 0" ng-repeat='time in deathTime | orderBy:"-" track by $index '><b>[{{ deathTime[$index] }}]</b>&emsp;<span style='color: white;' ng-bind="deathTips[death-$index-1]"></span></li>
+                    </deathview>
+                </div>
+            </div>
+        </div>
+        <div class="mastfoot">
+            <div class="inner"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-64084752-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = 'https://ssl.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+<div id="content" ng-init="page='index';" ng-cloak>
+    <div class="cover-container">
+        <div class="masthead clearfix">
+            <div class="inner">
+                <h3 class="masthead-brand" onmousedown="dragMove();" onmouseup="cursorNormal();">League Active Notes</h3>
+                <nav>
+                    <ul class="nav masthead-nav">
+                        <li class="active"><a href="#!Home">Home</a></li>
+                        <li><a href="#!AddTips">Add Tips</a></li>
+                        <li><a href="#!DeathTips">Death Tips</a></li>
+                        <li><a href="#!Overview">Overview</a></li>
+                        <li><a href="#!About">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="inner cover">
+            <div id="NoteSection"> <img src="images/League%20Active%20Notes.png" />
+                <h1 class="cover-heading">Summary:</h1>
+                <notifs ng-controller="LanController">
+                    {{ loaded() }}
+                    <p style='font-size: 18px; color:rgba(255,255,255,0.85); font-weight: 500;'> {{ death }} {{ ((death == 1) ? " Death Tip" : " Death Tips") }} available</p>
+                    <p style='font-size: 18px; color:rgba(255,255,255,0.85); font-weight: 500;'> {{ match }} {{ ((match == 1) ? " Match Overview" : " Match Overviews") }} available</p>
+                </notifs>
+                <!-- <button onclick="openSubWindow();">Open SubWindow <-</button> -->
+            </div>
+        </div>
+    </div>
+    <div class="mastfoot">
+
+    </div>
+</div>
