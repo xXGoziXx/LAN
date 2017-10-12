@@ -1,5 +1,4 @@
 # LAN
-A League of Legends Overwolf App that actively helps you take notes while playing the game.
 <h3>The Note-Taking App, that actually makes you better at LoL</h3>
 <b>League Active Notes (aka LAN)</b>, is the League of Legends Overwolf App that actively helps you take notes <b>while</b> playing the game.<br>
 <br> The <b>aim</b> of this app is to encourage players to note down their mistakes, so that they don't keep making them.<br>
